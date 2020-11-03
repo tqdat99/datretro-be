@@ -14,14 +14,26 @@ export default (app: Router) => {
     return res.status(200).json(users);
   });
 
-  //Get user by id
-  app.get("/users/:userId", async (req: Request, res: Response) => {
+  //Get user by username
+  app.get("/users/:username", async (req: Request, res: Response) => {
     const userService = Container.get(UserService);
-    const { userId } = req.params;
-    const user = await userService.getById(userId).catch(error => {
+    const { username } = req.params;
+    const user = await userService.getByUsername(username).catch(error => {
       return res.status(500).json({ error });
     });
     return res.status(200).json(user);
+  });
+
+  //Get user password by username
+  app.get("/users/:username/password", async (req: Request, res: Response) => {
+    const userService = Container.get(UserService);
+
+    const { username } = req.params;
+
+    const user = await userService.getByUsername(username).catch(error => {
+      return res.status(500).json({ error });
+    });
+    return res.status(200).json(user["password"]);
   });
 
   //Update user
@@ -41,4 +53,5 @@ export default (app: Router) => {
 
     return res.status(200).json(user);
   });
+
 };

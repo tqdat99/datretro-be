@@ -13,6 +13,7 @@ export default {
   databaseUser: process.env.MONGO_USER,
   databasePassword: process.env.MONGO_PASSWORD,
   databasePath: process.env.MONGO_PATH,
+  jwtSecret: process.env.JWT_SECRET,
 
   logs: {
     level: process.env.LOG_LEVEL || "silly"
