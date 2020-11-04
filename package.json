@@ -4,7 +4,7 @@
   "description": "React trello clone Node.js API.",
   "main": "src/app.ts",
   "scripts": {
-    "build": "tsc",
+    "build": "npm run tsc",
     "heroku-postbuild": "npm run build",
     "start": "node app.ts",
     "inspect": "node --inspect src/app.ts",
