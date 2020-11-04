@@ -3,6 +3,7 @@ import { Container } from "typedi";
 import _ from "lodash";
 import BoardService from "../services/board";
 import CardService from "../services/card";
+import BoardModel from "../models/board";
 
 export default (app: Router) => {
 

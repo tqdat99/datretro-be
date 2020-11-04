@@ -10,9 +10,12 @@ export default class AuthService {
 
     public async SignUp(username: string, password: string, displayName: string): Promise<{ user: IUser; token: string }> {
         try {
-            const data = { username, password, displayName };
+            const doc = new UserModel({ username: username, password: password, displayName: displayName });
+            //console.log(doc);
 
-            const userRecord = await UserModel.create(data);
+            //const data = { username, password, displayName };
+
+            const userRecord = await UserModel.create(doc);
 
             const isDuplicatedUser = await UserModel.findOne({ username });
             if (!isDuplicatedUser) {

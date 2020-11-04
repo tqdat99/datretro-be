@@ -8,32 +8,33 @@ export default class CardService implements ICrudService {
   constructor(private logger: Logger) { }
 
   public async get(queryOptions?: {}): Promise<any[]> {
-    const cards = Card.find(queryOptions);
-    return await cards.exec();
+    const card = Card.find(queryOptions);
+    return await card.exec();
   }
 
   public async getById(id: string): Promise<any> {
-    const board = Card.findById(id);
-    return await board.exec();
+    const card = Card.findById(id);
+    return await card.exec();
   }
 
-  public async getByBoardId(boardId: string): Promise<any> {
-    const board = Card.find({ boardId: boardId });
-    return await board.exec();
+  public async getBycardId(cardId: string): Promise<any> {
+    const card = Card.find({ cardId: cardId });
+    return await card.exec();
   }
 
   public async create(data: [] | {}): Promise<any> {
-    const board = await Card.create(data);
-    return board;
+    const doc = new Card({ boardId: data['boardId'], title: data['title'], content: data['content'], column: data['column'] });
+    const card = await Card.create(doc);
+    return card;
   }
 
   public async update(id: string, data: {}): Promise<any> {
-    const board = await Card.findByIdAndUpdate(id, data);
-    return await board.save();
+    const card = await Card.findByIdAndUpdate(id, data);
+    return await card.save();
   }
 
   public async delete(id: string): Promise<any> {
-    const board = await Card.findByIdAndDelete(id);
-    return board;
+    const card = await Card.findByIdAndDelete(id);
+    return card;
   }
 }

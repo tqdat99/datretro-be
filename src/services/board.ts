@@ -18,7 +18,12 @@ export default class BoardService implements ICrudService {
   }
 
   public async create(data: [] | {}): Promise<any> {
-    const board = await Board.create(data);
+    console.log("data:", data);
+    const doc = new Board({ title: data['title'], user: data['user'] });
+
+    console.log("doc:", doc);
+
+    const board = await Board.create(doc);
     return board;
   }
 

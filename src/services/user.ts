@@ -23,7 +23,8 @@ export default class UserService implements ICrudService {
     }
 
     public async create(data: [] | {}): Promise<any> {
-        const user = await User.create(data);
+        const doc = new User({ username: data['username'], password: data['password'], displayName: data['displayName'] });
+        const user = await User.create(doc);
         return user;
     }
 
