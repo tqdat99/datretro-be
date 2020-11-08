@@ -1,5 +1,5 @@
 {
-  "name": "react-trello-clone-api",
+  "name": "datretro-be",
   "version": "1.0.0",
   "description": "React trello clone Node.js API.",
   "main": "src/app.ts",
@@ -41,6 +41,7 @@
     "method-override": "^3.0.0",
     "mongodb": "^3.6.2",
     "mongoose": "^5.7.7",
+    "node": "^15.0.1",
     "reflect-metadata": "^0.1.13",
     "ts-node": "^9.0.0",
     "typedi": "^0.8.0",
