@@ -12,12 +12,13 @@ export default (app: Router) => {
         celebrate({
             body: Joi.object({
                 username: Joi.string().required(),
-                password: Joi.string().required(),
+                password: Joi.string().allow(null, ''),
                 displayName: Joi.string().required(),
             }),
         }),
         async (req: Request, res: Response, next: NextFunction) => {
             try {
+                console.log(req.body);
                 const authServiceInstance = Container.get(AuthService);
                 const { user, token } = await authServiceInstance.SignUp(req.body.username, req.body.password, req.body.displayName);
                 return res.status(201).json({ user, token });
