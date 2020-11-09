@@ -7,7 +7,7 @@
     ],
     "typeRoots": [
       "./node_modules/@types",
-      "./src/types"
+      "public/types"
     ],
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
@@ -23,7 +23,7 @@
     "esModuleInterop": true
   },
   "include": [
-    "./src/**/*"
+    "src/**/*"
   ],
   "exclude": [
     "node_modules",
