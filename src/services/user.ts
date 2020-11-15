@@ -1,7 +1,7 @@
-import { ICrudService } from "./../interfaces/ICrudService";
-import { Logger } from "./../logger/logger";
+import { ICrudService } from "../interfaces/ICrudService";
+import { Logger } from "../logger/logger";
 import { Service, Inject } from "typedi";
-import User from "./../models/user";
+import User from "../models/user";
 
 @Service()
 export default class UserService implements ICrudService {

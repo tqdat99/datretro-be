@@ -33,7 +33,12 @@ export default (app: Router) => {
     const user = await userService.getByUsername(username).catch(error => {
       return res.status(500).json({ error });
     });
-    return res.status(200).json(user["password"]);
+
+    if (user != undefined)
+      return res.status(200).json(user['password']);
+    else
+      return res.status(200).json(user);
+
   });
 
   //Update user

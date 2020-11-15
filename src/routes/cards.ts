@@ -67,6 +67,8 @@ export default (app: Router) => {
         return res.status(500).json({ error });
       });
 
+    console.log('here', cardId, title, content, column)
+
     return res.status(200).json(card);
   });
 
